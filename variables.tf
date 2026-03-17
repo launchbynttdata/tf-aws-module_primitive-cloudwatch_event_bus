@@ -13,6 +13,11 @@
 variable "name" {
   description = "Name of the new event bus. The names of custom event buses cannot contain the / character. To create a partner event bus, ensure that the name matches the event_source_name."
   type        = string
+
+  validation {
+    condition     = !contains(var.name, "/")
+    error_message = "name must not contain '/'."
+  }
 }
 
 variable "description" {
@@ -36,7 +41,7 @@ variable "kms_key_identifier" {
 variable "dead_letter_config" {
   description = "Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ)."
   type = object({
-    arn = optional(string)
+    arn = string
   })
   default = null
 }
