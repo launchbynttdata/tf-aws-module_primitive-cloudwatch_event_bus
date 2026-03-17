@@ -15,7 +15,7 @@ variable "name" {
   type        = string
 
   validation {
-    condition     = !contains(var.name, "/")
+    condition     = length(regexall("/", var.name)) == 0
     error_message = "name must not contain '/'."
   }
 }

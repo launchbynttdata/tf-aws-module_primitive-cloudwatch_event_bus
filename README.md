@@ -67,7 +67,7 @@ No modules.
 | <a name="input_description"></a> [description](#input\_description) | Event bus description. | `string` | `null` | no |
 | <a name="input_event_source_name"></a> [event\_source\_name](#input\_event\_source\_name) | Partner event source that the new event bus will be matched with. Must match name for partner event buses. | `string` | `null` | no |
 | <a name="input_kms_key_identifier"></a> [kms\_key\_identifier](#input\_kms\_key\_identifier) | Identifier of the AWS KMS customer managed key for EventBridge to use for encrypting events. Can be the key ARN, KeyId, key alias, or key alias ARN. | `string` | `null` | no |
-| <a name="input_dead_letter_config"></a> [dead\_letter\_config](#input\_dead\_letter\_config) | Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). | <pre>object({<br/>    arn = optional(string)<br/>  })</pre> | `null` | no |
+| <a name="input_dead_letter_config"></a> [dead\_letter\_config](#input\_dead\_letter\_config) | Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). | <pre>object({<br/>    arn = string<br/>  })</pre> | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of tags to assign to the event bus. | `map(string)` | `{}` | no |
 
 ## Outputs
