@@ -26,10 +26,10 @@ func getEventBridgeClient(t *testing.T) *eventbridge.Client {
 }
 
 func TestComposableComplete(t *testing.T, ctx types.TestContext) {
-	eventBusName := terraform.Output(t, ctx.TerratestTerraformOptions(), "name")
-	eventBusARN := terraform.Output(t, ctx.TerratestTerraformOptions(), "arn")
-	eventBusID := terraform.Output(t, ctx.TerratestTerraformOptions(), "id")
-	expectedKMSKeyARN := terraform.Output(t, ctx.TerratestTerraformOptions(), "kms_key_arn")
+	eventBusName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "name")
+	eventBusARN := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "arn")
+	eventBusID := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "id")
+	expectedKMSKeyARN := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "kms_key_arn")
 
 	assert.Equal(t, eventBusName, eventBusID, "id and name should be equal for EventBridge event bus")
 
@@ -69,10 +69,10 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 }
 
 func TestComposableCompleteReadOnly(t *testing.T, ctx types.TestContext) {
-	eventBusName := terraform.Output(t, ctx.TerratestTerraformOptions(), "name")
-	eventBusARN := terraform.Output(t, ctx.TerratestTerraformOptions(), "arn")
-	eventBusID := terraform.Output(t, ctx.TerratestTerraformOptions(), "id")
-	expectedKMSKeyARN := terraform.Output(t, ctx.TerratestTerraformOptions(), "kms_key_arn")
+	eventBusName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "name")
+	eventBusARN := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "arn")
+	eventBusID := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "id")
+	expectedKMSKeyARN := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "kms_key_arn")
 
 	assert.Equal(t, eventBusName, eventBusID, "id and name should be equal for EventBridge event bus")
 
